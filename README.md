@@ -10,7 +10,8 @@ My Lifeline is a web application that helps individuals visualize their life tim
 - The current point in that timeline
 - The percentage of life completed
 - Estimated time remaining
-- Important life milestones categorized by type
+- Important life events categorized by type (both point events and period events)
+- Separate timelines for different categories (Family, Education, Career, Other)
 
 The goal is to encourage introspection about how you've spent your time so far and what you want to do with the time you have left.
 
@@ -18,9 +19,12 @@ The goal is to encourage introspection about how you've spent your time so far a
 
 - Input your birth date and expected lifespan
 - Visualize your life timeline with past and future clearly distinguished
-- Add and categorize important life milestones (personal, family, education, career, etc.)
+- Add and categorize important life events (personal, family, education, career, etc.)
+- Support for both point events (single date) and period events (start and end dates)
+- Separate timelines for different categories to reduce clutter
 - See statistics about your current age and life percentage
 - User accounts to save and retrieve your personal lifeline
+- Predefined events available for testing
 - Reflection questions to help you think about your life journey
 
 ## Usage
@@ -29,17 +33,19 @@ The goal is to encourage introspection about how you've spent your time so far a
 1. Open `index.html` in your web browser
 2. Enter your birth date and expected lifespan
 3. Click "Generate My Lifeline" to see your personalized timeline
-4. Add milestones to your timeline
-5. Create an account to save your data permanently
+4. Click the "+" button to add events to your timeline
+5. Choose between point events and period events
+6. Create an account to save your data permanently
 
 ### With an Account
 1. Create an account or log in to an existing account
 2. Your lifeline will be automatically generated based on your birth date
-3. Add, edit, or remove milestones
+3. Add, edit, or remove events
 4. Your data is automatically saved to your account
 5. Log out and log back in anytime to see your lifeline
+6. If you log in as "testuser", you'll see predefined sample events
 
-## Milestone Categories
+## Event Categories
 
 - **Personal**: Important personal events and achievements
 - **Family**: Marriage, children, and other family-related events
@@ -49,6 +55,8 @@ The goal is to encourage introspection about how you've spent your time so far a
 - **Travel**: Significant trips and travel experiences
 - **Achievement**: Major accomplishments and goals reached
 - **Other**: Any other important life events
+
+Each category has its own timeline, making it easier to visualize different aspects of your life journey.
 
 ## Technical Details
 
