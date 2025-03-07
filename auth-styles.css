@@ -1,0 +1,105 @@
+/* Authentication Styles */
+.save-prompt {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    border-left: 4px solid var(--warning-color);
+}
+
+.save-prompt p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+.save-prompt-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.save-prompt-buttons button {
+    margin-top: 0;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+#go-to-login-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+}
+
+#go-to-login-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+#go-to-signup-btn {
+    background-color: var(--success-color);
+    color: var(--white);
+    border: none;
+}
+
+#go-to-signup-btn:hover {
+    background-color: var(--success-dark);
+}
+
+#continue-as-guest-btn {
+    background-color: var(--white);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+}
+
+#continue-as-guest-btn:hover {
+    background-color: #f1f1f1;
+}
+
+/* Modal Animation */
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content {
+    animation: modalFadeIn 0.3s ease-out;
+}
+
+/* Form Validation Styles */
+input:invalid, textarea:invalid, select:invalid {
+    border-color: var(--secondary-color);
+}
+
+input:focus:invalid, textarea:focus:invalid, select:focus:invalid {
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2);
+}
+
+/* Login/Signup Form Specific Styles */
+#login-form, #signup-form {
+    margin-bottom: 1rem;
+}
+
+#login-username, #login-password, #signup-username, #signup-password, #signup-confirm-password, #signup-birthdate {
+    margin-bottom: 1rem;
+}
+
+.modal-switch {
+    font-size: 0.95rem;
+}
+
+.modal-switch a {
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.modal-switch a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+}

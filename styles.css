@@ -1,0 +1,1147 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #e74c3c;
+    --secondary-dark: #c0392b;
+    --success-color: #27ae60;
+    --success-dark: #219653;
+    --warning-color: #f39c12;
+    --warning-dark: #d35400;
+    --light-gray: #f8f9fa;
+    --medium-gray: #bdc3c7;
+    --dark-gray: #7f8c8d;
+    --text-color: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+    
+    /* Milestone category colors */
+    --personal-color: #9b59b6; /* Purple */
+    --family-color: #e74c3c; /* Red */
+    --education-color: #3498db; /* Blue */
+    --career-color: #2ecc71; /* Green */
+    --health-color: #1abc9c; /* Turquoise */
+    --travel-color: #f1c40f; /* Yellow */
+    --achievement-color: #f39c12; /* Orange */
+    --other-color: #95a5a6; /* Gray */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+}
+
+/* Header Styles */
+.main-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.auth-buttons, .user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.auth-button {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    margin-top: 0;
+}
+
+.auth-button:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+.logout-btn {
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.logout-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+.user-greeting {
+    font-weight: 500;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+}
+
+.intro-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--dark-gray);
+    margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.input-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+select {
+    appearance: auto;
+    background-color: var(--white);
+}
+
+.primary-button {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+.primary-button:hover {
+    background-color: var(--primary-dark);
+}
+
+.secondary-button {
+    background-color: var(--white);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.secondary-button:hover {
+    background-color: #f1f1f1;
+    border-color: #ccc;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Lifeline Section */
+#lifeline-section {
+    margin-top: 3rem;
+}
+
+.stats-container {
+    margin-bottom: 2rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.stat-item {
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+.label {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Lifeline Container */
+.lifeline-container {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.lifeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.lifeline-header h2 {
+    margin: 0;
+}
+
+.circle-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 0;
+}
+
+.circle-button:hover {
+    background-color: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+.lifeline-wrapper {
+    margin: 3rem 0;
+}
+
+.lifeline {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-lifeline {
+    margin-bottom: 2rem;
+}
+
+/* Category Lifelines */
+.category-lifelines {
+    margin: 2rem 0;
+}
+
+.category-lifeline-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.category-label {
+    width: 100px;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: right;
+    padding-right: 1rem;
+}
+
+.category-lifeline {
+    flex: 1;
+    height: 12px;
+    position: relative;
+    border-radius: 6px;
+    overflow: visible;
+}
+
+.category-line {
+    width: 100%;
+    height: 100%;
+    background-color: var(--medium-gray);
+    opacity: 0.3;
+    border-radius: 6px;
+}
+
+.family-lifeline .category-line {
+    background-color: var(--family-color);
+}
+
+.education-lifeline .category-line {
+    background-color: var(--education-color);
+}
+
+.career-lifeline .category-line {
+    background-color: var(--career-color);
+}
+
+.other-lifeline .category-line {
+    background-color: var(--other-color);
+}
+
+.category-events-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Category Event Styles */
+.category-event {
+    position: absolute;
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    top: 0;
+}
+
+.category-event.family {
+    background-color: var(--family-color);
+}
+
+.category-event.education {
+    background-color: var(--education-color);
+}
+
+.category-event.career {
+    background-color: var(--career-color);
+}
+
+.category-event.other {
+    background-color: var(--other-color);
+}
+
+.category-point-event {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    z-index: 3;
+    cursor: pointer;
+}
+
+.category-point-event.family {
+    background-color: var(--family-color);
+}
+
+.category-point-event.education {
+    background-color: var(--education-color);
+}
+
+.category-point-event.career {
+    background-color: var(--career-color);
+}
+
+.category-point-event.other {
+    background-color: var(--other-color);
+}
+
+#past-line {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 10px 0 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#past-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite linear;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+#future-line {
+    height: 100%;
+    background-color: var(--medium-gray);
+    border-radius: 0 10px 10px 0;
+}
+
+#current-point {
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary-color);
+    border: 3px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.3);
+}
+
+.milestone-marker {
+    width: 16px;
+    height: 16px;
+    background-color: var(--warning-color);
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.milestone-marker:hover {
+    transform: translateY(-50%) scale(1.2);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Milestone category colors */
+.milestone-marker.personal {
+    background-color: var(--personal-color);
+}
+
+.milestone-marker.family {
+    background-color: var(--family-color);
+}
+
+.milestone-marker.education {
+    background-color: var(--education-color);
+}
+
+.milestone-marker.career {
+    background-color: var(--career-color);
+}
+
+.milestone-marker.health {
+    background-color: var(--health-color);
+}
+
+.milestone-marker.travel {
+    background-color: var(--travel-color);
+}
+
+.milestone-marker.achievement {
+    background-color: var(--achievement-color);
+}
+
+.milestone-marker.other {
+    background-color: var(--other-color);
+}
+
+.milestone-tooltip {
+    position: absolute;
+    bottom: 30px;
+    transform: translateX(-50%);
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    min-width: 200px;
+    z-index: 10;
+    display: none;
+    pointer-events: none;
+}
+
+.milestone-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid var(--white);
+}
+
+.milestone-marker:hover .milestone-tooltip {
+    display: block;
+}
+
+.milestone-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+}
+
+.milestone-category {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    color: var(--white);
+}
+
+.milestone-category.personal {
+    background-color: var(--personal-color);
+}
+
+.milestone-category.family {
+    background-color: var(--family-color);
+}
+
+.milestone-category.education {
+    background-color: var(--education-color);
+}
+
+.milestone-category.career {
+    background-color: var(--career-color);
+}
+
+.milestone-category.health {
+    background-color: var(--health-color);
+}
+
+.milestone-category.travel {
+    background-color: var(--travel-color);
+}
+
+.milestone-category.achievement {
+    background-color: var(--achievement-color);
+}
+
+.milestone-category.other {
+    background-color: var(--other-color);
+}
+
+.milestone-date {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.milestone-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.timeline-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: var(--dark-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Milestone Legend */
+.milestone-legend {
+    margin-top: 2rem;
+}
+
+.legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-marker {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+}
+
+.legend-marker.personal {
+    background-color: var(--personal-color);
+}
+
+.legend-marker.family {
+    background-color: var(--family-color);
+}
+
+.legend-marker.education {
+    background-color: var(--education-color);
+}
+
+.legend-marker.career {
+    background-color: var(--career-color);
+}
+
+.legend-marker.health {
+    background-color: var(--health-color);
+}
+
+.legend-marker.travel {
+    background-color: var(--travel-color);
+}
+
+.legend-marker.achievement {
+    background-color: var(--achievement-color);
+}
+
+.legend-marker.other {
+    background-color: var(--other-color);
+}
+
+/* Milestones Timeline Section */
+.milestones-timeline-section {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    margin: 2rem 0;
+}
+
+.milestones-timeline {
+    position: relative;
+    margin: 2rem 0;
+    padding-left: 2rem;
+}
+
+.milestones-timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    background-color: var(--medium-gray);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    border: 3px solid var(--white);
+}
+
+.timeline-item.personal::before {
+    background-color: var(--personal-color);
+}
+
+.timeline-item.family::before {
+    background-color: var(--family-color);
+}
+
+.timeline-item.education::before {
+    background-color: var(--education-color);
+}
+
+.timeline-item.career::before {
+    background-color: var(--career-color);
+}
+
+.timeline-item.health::before {
+    background-color: var(--health-color);
+}
+
+.timeline-item.travel::before {
+    background-color: var(--travel-color);
+}
+
+.timeline-item.achievement::before {
+    background-color: var(--achievement-color);
+}
+
+.timeline-item.other::before {
+    background-color: var(--other-color);
+}
+
+.timeline-content {
+    background-color: #f9f9f9;
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.timeline-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.period-badge {
+    font-size: 0.7rem;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--dark-gray);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-category {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    color: var(--white);
+    margin-bottom: 0.5rem;
+}
+
+.timeline-category.personal {
+    background-color: var(--personal-color);
+}
+
+.timeline-category.family {
+    background-color: var(--family-color);
+}
+
+.timeline-category.education {
+    background-color: var(--education-color);
+}
+
+.timeline-category.career {
+    background-color: var(--career-color);
+}
+
+.timeline-category.health {
+    background-color: var(--health-color);
+}
+
+.timeline-category.travel {
+    background-color: var(--travel-color);
+}
+
+.timeline-category.achievement {
+    background-color: var(--achievement-color);
+}
+
+.timeline-category.other {
+    background-color: var(--other-color);
+}
+
+.timeline-description {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.timeline-delete {
+    color: var(--secondary-color);
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+}
+
+.timeline-delete:hover {
+    transform: scale(1.2);
+}
+
+/* Reflection Section */
+.reflection-section {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin: 2rem 0;
+}
+
+.reflection-section h3 {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+.reflection-section ul {
+    padding-left: 1.5rem;
+}
+
+.reflection-section li {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+#save-btn {
+    background-color: var(--success-color);
+}
+
+#save-btn:hover {
+    background-color: var(--success-dark);
+}
+
+#reset-btn {
+    background-color: var(--white);
+    color: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
+}
+
+#reset-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    overflow: auto;
+    padding: 2rem;
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 2rem auto;
+    max-width: 600px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--white);
+}
+
+.close-modal {
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close-modal:hover {
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+/* Event Type Selector */
+.event-type-selector {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid #ddd;
+}
+
+.event-type-btn {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin: 0;
+    font-weight: 600;
+}
+
+.event-type-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.event-type-btn:not(.active):hover {
+    background-color: #e9ecef;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.custom-checkbox {
+    width: auto;
+    margin-right: 0.5rem;
+}
+
+.checkbox-label {
+    display: inline;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Period event styling */
+.period-event {
+    position: absolute;
+    height: 10px;
+    background-color: rgba(52, 152, 219, 0.5);
+    border-radius: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.period-event.personal {
+    background-color: rgba(155, 89, 182, 0.5); /* Purple */
+}
+
+.period-event.family {
+    background-color: rgba(231, 76, 60, 0.5); /* Red */
+}
+
+.period-event.education {
+    background-color: rgba(52, 152, 219, 0.5); /* Blue */
+}
+
+.period-event.career {
+    background-color: rgba(46, 204, 113, 0.5); /* Green */
+}
+
+.period-event.health {
+    background-color: rgba(26, 188, 156, 0.5); /* Turquoise */
+}
+
+.period-event.travel {
+    background-color: rgba(241, 196, 15, 0.5); /* Yellow */
+}
+
+.period-event.achievement {
+    background-color: rgba(243, 156, 18, 0.5); /* Orange */
+}
+
+.period-event.other {
+    background-color: rgba(149, 165, 166, 0.5); /* Gray */
+}
+
+.period-event-marker {
+    position: absolute;
+    width: 8px;
+    height: 16px;
+    background-color: var(--white);
+    border: 1px solid;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.period-event-marker.start {
+    border-radius: 4px 0 0 4px;
+    left: 0;
+}
+
+.period-event-marker.end {
+    border-radius: 0 4px 4px 0;
+    right: 0;
+}
+
+.period-event-marker.personal {
+    border-color: var(--personal-color);
+}
+
+.period-event-marker.family {
+    border-color: var(--family-color);
+}
+
+.period-event-marker.education {
+    border-color: var(--education-color);
+}
+
+.period-event-marker.career {
+    border-color: var(--career-color);
+}
+
+.period-event-marker.health {
+    border-color: var(--health-color);
+}
+
+.period-event-marker.travel {
+    border-color: var(--travel-color);
+}
+
+.period-event-marker.achievement {
+    border-color: var(--achievement-color);
+}
+
+.period-event-marker.other {
+    border-color: var(--other-color);
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-switch {
+    margin-top: 1.5rem;
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 1.5rem;
+}
+
+.modal-switch a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.modal-switch a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--secondary-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 0 1rem;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .stats {
+        flex-direction: column;
+    }
+    
+    .stat-item {
+        margin-bottom: 1rem;
+    }
+    
+    .lifeline-container {
+        padding: 1.5rem;
+    }
+    
+    .modal {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        margin: 1rem auto;
+    }
+}

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Lifeline</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1>My Lifeline</h1>
+            </div>
+            <div class="auth-buttons" id="auth-buttons">
+                <button id="login-header-btn" class="auth-button">Login</button>
+                <button id="signup-header-btn" class="auth-button">Sign Up</button>
+            </div>
+            <div id="user-section" class="user-section hidden">
+                <span class="user-greeting">Welcome, <span id="username-display"></span>!</span>
+                <button id="logout-btn" class="auth-button logout-btn">Logout</button>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="intro-section">
+            <p class="tagline">A visual journey through your life's timeline</p>
+        </div>
+        
+        <!-- Guest save prompt (shown when not logged in but has data) -->
+        <div id="guest-save-prompt" class="save-prompt hidden">
+            <p>Would you like to save your lifeline? Create an account or login to save your data.</p>
+            <div class="save-prompt-buttons">
+                <button id="go-to-login-btn">Login</button>
+                <button id="go-to-signup-btn">Sign Up</button>
+                <button id="continue-as-guest-btn">Continue as Guest</button>
+            </div>
+        </div>
+        
+        <div id="input-section" class="input-card">
+            <h2>Enter Your Information</h2>
+            <form id="lifeline-form">
+                <div class="form-group">
+                    <label for="birthdate">Birth Date:</label>
+                    <input type="date" id="birthdate" required>
+                </div>
+                <div class="form-group">
+                    <label for="life-expectancy">Expected Life Span (years):</label>
+                    <input type="number" id="life-expectancy" min="1" max="120" value="80" required>
+                </div>
+                <button type="submit" class="primary-button">Generate My Lifeline</button>
+            </form>
+        </div>
+        
+        <div id="lifeline-section" class="hidden">
+            <div class="stats-container">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="label">Age:</span>
+                        <span id="current-age" class="stat-value"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Life Percentage:</span>
+                        <span id="life-percentage" class="stat-value"></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Estimated Time Remaining:</span>
+                        <span id="time-remaining" class="stat-value"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="lifeline-container">
+                <div class="lifeline-header">
+                    <h2>Your Lifeline</h2>
+                    <button id="add-milestone-btn" class="circle-button" title="Add Milestone">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                
+                <div class="lifeline-wrapper">
+                    <!-- Main lifeline -->
+                    <div class="lifeline main-lifeline">
+                        <div id="past-line"></div>
+                        <div id="current-point"></div>
+                        <div id="future-line"></div>
+                        <div id="milestones-container"></div>
+                    </div>
+                    
+                    <!-- Category lifelines -->
+                    <div class="category-lifelines">
+                        <div class="category-lifeline-row">
+                            <div class="category-label">Family</div>
+                            <div class="category-lifeline family-lifeline">
+                                <div class="category-line"></div>
+                                <div id="family-events-container" class="category-events-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-lifeline-row">
+                            <div class="category-label">Education</div>
+                            <div class="category-lifeline education-lifeline">
+                                <div class="category-line"></div>
+                                <div id="education-events-container" class="category-events-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-lifeline-row">
+                            <div class="category-label">Career</div>
+                            <div class="category-lifeline career-lifeline">
+                                <div class="category-line"></div>
+                                <div id="career-events-container" class="category-events-container"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="category-lifeline-row">
+                            <div class="category-label">Other</div>
+                            <div class="category-lifeline other-lifeline">
+                                <div class="category-line"></div>
+                                <div id="other-events-container" class="category-events-container"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-labels">
+                        <span id="birth-label"></span>
+                        <span id="current-label">Today</span>
+                        <span id="end-label"></span>
+                    </div>
+                </div>
+                
+                <div class="milestone-legend">
+                    <div class="legend-items">
+                        <div class="legend-item">
+                            <span class="legend-marker personal"></span>
+                            <span>Personal</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker family"></span>
+                            <span>Family</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker education"></span>
+                            <span>Education</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker career"></span>
+                            <span>Career</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker health"></span>
+                            <span>Health</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker travel"></span>
+                            <span>Travel</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker achievement"></span>
+                            <span>Achievement</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-marker other"></span>
+                            <span>Other</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="milestones-timeline-section">
+                <h3>Your Life Journey</h3>
+                <div id="milestones-timeline" class="milestones-timeline"></div>
+            </div>
+            
+            <div class="reflection-section">
+                <h3>Reflection Questions</h3>
+                <ul>
+                    <li>What have you accomplished in your life so far?</li>
+                    <li>What do you want to achieve in your remaining time?</li>
+                    <li>Are you satisfied with how you've spent your time until now?</li>
+                    <li>What changes would you like to make going forward?</li>
+                </ul>
+            </div>
+            
+            <div class="button-group">
+                <button id="save-btn" class="primary-button">Save Data</button>
+                <button id="reset-btn" class="secondary-button">Reset</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Milestone Modal -->
+    <div id="milestone-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add Life Event</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="event-type-selector">
+                    <button type="button" id="point-event-btn" class="event-type-btn active">Point Event</button>
+                    <button type="button" id="period-event-btn" class="event-type-btn">Period Event</button>
+                </div>
+                
+                <form id="milestone-form">
+                    <div class="form-group">
+                        <label for="milestone-type" class="hidden">Event Type:</label>
+                        <input type="hidden" id="milestone-type" value="point">
+                    </div>
+                    
+                    <!-- Point Event Date -->
+                    <div class="form-group point-event-field">
+                        <label for="milestone-date">Date:</label>
+                        <input type="date" id="milestone-date" required>
+                    </div>
+                    
+                    <!-- Period Event Dates -->
+                    <div class="form-group period-event-field hidden">
+                        <label for="milestone-start-date">Start Date:</label>
+                        <input type="date" id="milestone-start-date">
+                    </div>
+                    <div class="form-group period-event-field hidden">
+                        <label for="milestone-end-date">End Date:</label>
+                        <input type="date" id="milestone-end-date">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="milestone-ongoing" class="custom-checkbox">
+                            <label for="milestone-ongoing" class="checkbox-label">Ongoing</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="milestone-title">Title:</label>
+                        <input type="text" id="milestone-title" placeholder="e.g., Graduation, Job, etc." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="milestone-category">Category:</label>
+                        <select id="milestone-category" required>
+                            <option value="personal">Personal</option>
+                            <option value="family">Family (Marriage, Children)</option>
+                            <option value="education">Education</option>
+                            <option value="career">Career</option>
+                            <option value="health">Health</option>
+                            <option value="travel">Travel</option>
+                            <option value="achievement">Achievement</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="milestone-description">Description (optional):</label>
+                        <textarea id="milestone-description" rows="3"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="secondary-button cancel-modal">Cancel</button>
+                        <button type="submit" class="primary-button">Add Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Login to Your Account</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="login-username">Username:</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <div id="login-error" class="error-message"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="secondary-button cancel-modal">Cancel</button>
+                        <button type="submit" class="primary-button">Login</button>
+                    </div>
+                </form>
+                <div class="modal-switch">
+                    <p>Don't have an account? <a href="#" id="switch-to-signup">Sign up</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Signup Modal -->
+    <div id="signup-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create a New Account</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="signup-form">
+                    <div class="form-group">
+                        <label for="signup-username">Username:</label>
+                        <input type="text" id="signup-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password">Password:</label>
+                        <input type="password" id="signup-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-confirm-password">Confirm Password:</label>
+                        <input type="password" id="signup-confirm-password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-birthdate">Birth Date:</label>
+                        <input type="date" id="signup-birthdate" required>
+                    </div>
+                    <div id="signup-error" class="error-message"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="secondary-button cancel-modal">Cancel</button>
+                        <button type="submit" class="primary-button">Sign Up</button>
+                    </div>
+                </form>
+                <div class="modal-switch">
+                    <p>Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="predefined-events.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
